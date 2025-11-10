@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="hospital-persistence-unit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- ENTIDADES REGISTRADAS -->
+        <class>org.example.entidades.Cita</class>
+        <class>org.example.entidades.Departamento</class>
+        <class>org.example.entidades.EspecialidadMedica</class>
+        <class>org.example.entidades.EstadoCita</class>
+        <class>org.example.entidades.HistoriaClinica</class>
+        <class>org.example.entidades.Hospital</class>
+        <class>org.example.entidades.Matricula</class>
+        <class>org.example.entidades.Medico</class>
+        <class>org.example.entidades.Paciente</class>
+        <class>org.example.entidades.Persona</class>
+        <class>org.example.entidades.Sala</class>
+        <class>org.example.entidades.TipoSangre</class>
+
+        <!-- CONFIGURACIÓN DE BASE DE DATOS EN MEMORIA (H2) -->
+        <properties>
+            <!-- Driver JDBC -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:hospitaldb;DB_CLOSE_DELAY=-1"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+
+            <!-- Opción extra: logs más claros -->
+            <property name="hibernate.use_sql_comments" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
